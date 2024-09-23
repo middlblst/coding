@@ -1,0 +1,48 @@
+Sub List53_AfterUpdate()
+   ' 컨트롤과 일치하는 레코드를 찾으십시오.
+    Dim rs As Object
+    
+    
+
+     Set rs = Me.Recordset.Clone
+    rs.FindFirst "[ID] = " & Str(Nz(Me![List53], 0))
+    If Not rs.EOF Then Me.Bookmark = rs.Bookmark
+
+    Me.Text88.Requery
+   
+      출고담당 = Text171
+    
+    
+    Call 제품입력뉴_총보조수
+    Call 상호_등급
+    Call 제품입력뉴_기타공임
+    Call 제품입력뉴_기타중량
+    Call 제품입력뉴_공임할인
+    
+
+Me.List175.Requery
+
+
+
+Me.List181.Requery
+
+
+'On Error Resume Next
+
+
+If Me.Text255.Value = "매장출고" Then
+    
+    'https://www.rapidtables.com/web/color/RGB_Color.html
+    
+    Me.Section(0).BackColor = RGB(255, 255, 240)
+'    Me.Section(1).BackColor = RGB(255, 259, 204)
+'    Me.Section(2).BackColor = RGB(255, 259, 204)
+     
+Else
+    
+    Me.Section(0).BackColor = RGB(255, 255, 255)
+'    Me.Section(1).BackColor = RGB(192, 192, 192)
+'    Me.Section(2).BackColor = RGB(192, 192, 192)
+    
+    
+End If
